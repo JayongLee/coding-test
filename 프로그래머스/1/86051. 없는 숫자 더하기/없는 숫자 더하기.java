@@ -1,20 +1,14 @@
-import java.util.HashSet;
+import java.util.*;
 
 class Solution {
     public int solution(int[] numbers) {
-
-        HashSet<Integer> exist = new HashSet<>();
-        for(int num : numbers) {
-            exist.add(num);
-        }
-
+        Set<Integer> numSet = new HashSet<>();
+        Arrays.stream(numbers).forEach(n -> numSet.add(n));
         int answer = 0;
-        
-        for(int i = 0; i < 10; i++) {
-            if(!exist.contains(i)) {
-                answer += i;
-            }
+        for (int i = 0; i <= 9; i++) {
+            if (!numSet.contains(i)) answer += i;
         }
+
         return answer;
     }
 }
